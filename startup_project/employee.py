@@ -1,9 +1,9 @@
 class Employee:
-    def __init__(self, name, title, earnings):
+    def __init__(self, name, title):
         self.name = name
         self.title = title
-        self.earnings = earnings
+        self.earnings = 0
 
     def pay(self, amount):
-        pass
+        self.earnings += amount
         
