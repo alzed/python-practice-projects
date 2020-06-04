@@ -12,14 +12,15 @@ class Code:
             self.length = number
             self.code = code
             self.pegs = list(self.code)
-
+        
     def is_valid(self, code, number):
         if len(code) == number:
             if all(map(lambda a: a in self.possible_pegs[:number], code)):
                 return True
             else:
-                print(f'Should contain self.possible')
-
+                raise ValueError('Invalid code')
+        else:
+            raise ValueError('Invalid code length')
 
     def get_matches(self, code):
         exact_matches = 0
@@ -33,4 +34,4 @@ class Code:
 
     @staticmethod
     def random(number):
-        return choices(Code.possible_pegs, k=number)  
+        return choices(Code.possible_pegs[:number], k=number)  
