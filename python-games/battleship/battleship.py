@@ -5,13 +5,14 @@ class Battleship:
     def __init__(self, size):
         self.player = Player()
         self.board = Board(size)
-        self.remaining_guesses = self.board.num_ships() + 2
+        self.remaining_guesses = int(size**2 * 0.5) 
 
     def start_game(self):
         self.board.print_grid()
         self.board.place_random_ships()
 
     def turn(self):
+        print(f"Remaining guesses: {self.remaining_guesses}")
         position = self.player.get_move()
         if 0 <= position[0]*position[1] <= (self.board.size-1)**2:
             attacked = self.board.attack(position)
