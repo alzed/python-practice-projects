@@ -3,8 +3,8 @@ from tictactoe import Gameboard
 def player():
     print('Enter points: ', end=' ')
     r, c  = map(int, input().split())
-    if game.check_pos(r, c):
-        game.set_pos(xo, r, c)
+    if game.check_pos(r-1, c-1):
+        game.set_pos(xo, r-1, c-1)
     else:
         print('Invalid move. Try again.')
         game.display_board()
