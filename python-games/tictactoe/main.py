@@ -3,8 +3,12 @@ from tictactoe import Gameboard
 def player():
     print('Enter points: ', end=' ')
     r, c  = map(int, input().split())
-    if game.check_pos(r, c):
-        game.set_pos(xo, r, c)
+    if game.check_pos(r-1, c-1):
+        game.set_pos(xo, r-1, c-1)
+    else:
+        print('Invalid move. Try again.')
+        game.display_board()
+        player()
     game.display_board()
 
 def computer():
@@ -15,10 +19,10 @@ game = Gameboard()
 print('Choose x or o: ', end=' ')
 xo = input()
 x = game.choose_symbol(xo)
-game.display_board()
 if x:
+    game.display_board()
     player()
-    for i in range(4):
+    for _ in range(4):
         computer()
         result = game.check_wins()
         if result in ['won', 'lost']:
@@ -33,7 +37,7 @@ if x:
         print('Game draw')
 else:
     computer()
-    for i in range(4):
+    for _ in range(4):
         player()
         result = game.check_wins()
         if result in ['won', 'lost']:
