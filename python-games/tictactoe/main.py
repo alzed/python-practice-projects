@@ -22,7 +22,7 @@ x = game.choose_symbol(xo)
 if x:
     game.display_board()
     player()
-    for i in range(4):
+    for _ in range(4):
         computer()
         result = game.check_wins()
         if result in ['won', 'lost']:
@@ -37,7 +37,7 @@ if x:
         print('Game draw')
 else:
     computer()
-    for i in range(4):
+    for _ in range(4):
         player()
         result = game.check_wins()
         if result in ['won', 'lost']:
