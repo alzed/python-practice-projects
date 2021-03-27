@@ -9,6 +9,7 @@ class Mastermind:
     def declare_pegs(self):
         possible_pegs = Code.possible_pegs[:self.length]
         print(f"Possible letters of secret code: {', '.join(possible_pegs)}")
+        print("Enter the answer in capital without spaces, Eg: RGB")
 
     def ask_user(self):
         print("Type your guess:", end="  ")
